@@ -1,0 +1,10 @@
+ol {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-content: center;
+}
+
+.done-success {
+    text-decoration-line: line-through;
+    color: green;
+}

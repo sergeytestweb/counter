@@ -8,3 +8,49 @@ ol {
     text-decoration-line: line-through;
     color: green;
 }
+
+.podlozhka {
+    width: 500px;
+    height: 400px;
+    background-image: linear-gradient(#fec0c1, #9a70ca);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.blackboard {
+    background-color: #ffffff;
+    width: 195px;
+    height: 350px;
+    border-radius: 25px;
+    position:relative;
+    border: 1px solid lightslategray;
+
+}
+
+input {
+    margin-top: 10px;
+    border-radius: 10px;
+    border: 1px solid lightslategray;
+}
+
+.mainAdd {
+    position: absolute;
+    bottom: 10px;
+    background-color: #baf0af;
+    border-radius: 50%;
+    border: 1px solid rgb(199, 199, 188);
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+}
+
+.mainAdd:hover {
+    background-color: #7dec67;
+
+}
+
+.mainButton {
+    display: flex;
+    justify-content: center;
+}

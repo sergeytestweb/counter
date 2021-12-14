@@ -17,7 +17,7 @@ const TodoList = () => {
         ...listInputValue,
       ]);
     } else {
-      alert("Tакой уже ЕСТЬ !");
+      alert("Already exists !");
     }
     localStorage.setItem(
       "todosList",
@@ -42,24 +42,34 @@ const TodoList = () => {
   };
 
   return (
-    <div>
-      <input type="text" onChange={(e) => changeInputValue(e)} />
-      <button onClick={addListInputValue}>+ Add</button>
-      <ol>
-        {listInputValue.map((object, index) => (
-          <li key={index} className={`${object.done ? "done-success" : ""}`}>
-            {object.value}
-            {""}
-            <button onClick={() => deleteLiElement(index)}>Delete</button>
-            <button
-              onClick={() => doneLiElement(index)}
-              className={`${object.done && "button-success"}`}
-            >
-              Done
-            </button>
-          </li>
-        ))}
-      </ol>
+    <div className="podlozhka">
+      <div className="blackboard">
+        <input
+          type="text"
+          placeholder="Input task here..."
+          onChange={(e) => changeInputValue(e)}
+        />
+        <ul>
+          {listInputValue.map((object, index) => (
+            <li key={index} className={`${object.done ? "done-success" : ""}`}>
+              {object.value}
+              {""}
+              <button onClick={() => deleteLiElement(index)}>Del</button>
+              <button
+                onClick={() => doneLiElement(index)}
+                className={`${object.done && "button-success"}`}
+              >
+                Done
+              </button>
+            </li>
+          ))}
+        </ul>
+        <div className="mainButton">
+          <button className="mainAdd" onClick={addListInputValue}>
+            +
+          </button>
+        </div>
+      </div>
     </div>
   );
 };

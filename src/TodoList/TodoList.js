@@ -11,6 +11,11 @@ const TodoList = () => {
   );
 
   const addListInputValue = () => {
+    if (inputValue === "") {
+      alert("Empty deprecated");
+      return;
+    }
+
     if (!listInputValue.find(({ value }) => value === inputValue)) {
       setListInputValue([
         { value: inputValue, done: false },
@@ -23,6 +28,7 @@ const TodoList = () => {
       "todosList",
       JSON.stringify([{ value: inputValue }, ...listInputValue])
     );
+    setInputValue("");
   };
 
   const changeInputValue = (e) => {
@@ -31,20 +37,21 @@ const TodoList = () => {
 
   const deleteLiElement = (index) => {
     listInputValue.splice(index, 1);
-    setListInputValue([...listInputValue]);
     localStorage.setItem("todosList", JSON.stringify(listInputValue));
+    setListInputValue([...listInputValue]);
   };
 
   const doneLiElement = (index) => {
     listInputValue[index].done = !listInputValue[index].done;
-    setListInputValue([...listInputValue]);
     localStorage.setItem("todosList", JSON.stringify(listInputValue));
+    setListInputValue([...listInputValue]);
   };
 
   return (
     <div className="podlozhka">
       <div className="blackboard">
         <input
+          value={inputValue}
           type="text"
           placeholder="Input task here..."
           onChange={(e) => changeInputValue(e)}
@@ -52,15 +59,14 @@ const TodoList = () => {
         <ul>
           {listInputValue.map((object, index) => (
             <li key={index} className={`${object.done ? "done-success" : ""}`}>
+              <input
+                type="checkbox"
+                onClick={() => doneLiElement(index)}
+                className={`${object.done && "button-success"} checkbox`}
+              />
               {object.value}
               {""}
               <button onClick={() => deleteLiElement(index)}>Del</button>
-              <button
-                onClick={() => doneLiElement(index)}
-                className={`${object.done && "button-success"}`}
-              >
-                Done
-              </button>
             </li>
           ))}
         </ul>

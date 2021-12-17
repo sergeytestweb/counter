@@ -1,11 +1,19 @@
-ol {
+ul {
     display: grid;
     grid-template-columns: 1fr;
     justify-content: center;
+    padding: 10px;
 }
 
 .done-success {
     text-decoration-line: line-through;
+}
+
+li {
+    list-style-type: none;
+    text-align: left;
+    margin-right: 12px;
+    word-break: break-all;
 }
 
 .podlozhka {
@@ -31,10 +39,10 @@ ol {
 
 input {
     margin-top: 10px;
-    border-radius: 10px;
+    border-radius: 15px;
     border: 1px solid lightslategray;
     max-width: 150px;
-    padding-left: 10px;
+    padding: 10px;
 }
 
 .mainAdd {
@@ -46,6 +54,7 @@ input {
     width: 35px;
     height: 35px;
     cursor: pointer;
+    margin-bottom: -28px;
 }
 
 .mainAdd:hover {
@@ -73,9 +82,10 @@ button {
     background-color: lightgray;
   }
 
-  li {
-      list-style-type: none;
-      text-align: right;
-      margin-right: 12px;
-      word-break: break-all;
+
+  .checkbox {
+    transform:scale(1.2);
+    opacity:0.75;
+    cursor:pointer;
   }
+  
